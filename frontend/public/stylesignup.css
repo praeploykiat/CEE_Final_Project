@@ -1,0 +1,98 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8eedb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    text-align: center;
+}
+
+.gift-icon {
+    margin-top: 5px;
+    width: 300px; /* Reduced image size */
+}
+
+/* Signup Box */
+.signup-box {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px; /* Reduced padding */
+    margin-top: 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Reduced width */
+    display: inline-block;
+}
+
+.signup-box h3 {
+    font-size: 1.2rem; /* Reduced font size */
+    color: #000;
+    background-color: #b4dee9;
+    padding: 8px; /* Reduced padding */
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    font-size: 0.8rem; /* Slightly smaller label text */
+    color: #555;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 90%;
+    padding: 8px; /* Reduced padding */
+    margin-bottom: 12px; /* Reduced gap */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    font-size: 0.9rem; /* Slightly smaller font */
+}
+
+.extra-links {
+    font-size: 0.8rem; /* Reduced font size */
+    color: #555;
+    margin-bottom: 15px;
+    
+}
+
+.extra-links a {
+    color: #e74c3c;
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 8px; /* Reduced padding */
+    background-color: #b4dee9;
+    color: #000;
+    font-size: 0.9rem; /* Slightly smaller font size */
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #9d9ad9;
+}

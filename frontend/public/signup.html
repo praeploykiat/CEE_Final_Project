@@ -3,36 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Year Resolution Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Signup</title>
+    <link rel="stylesheet" href="stylesignup.css">
 </head>
 <body>
     <div class="container">
-        <!-- Header Section -->
         <div class="header">
-            <img src="NYLogo.png" alt="Gift Icon" class="logo">
+            <img src="NYLogo.png" alt="Gift Icon" class="gift-icon">
         </div>
-
-        <!-- Login Form Section -->
-        <div class="login-box">
-            <h3>LOGIN</h3>
+        <div class="signup-box">
+            <h3>SIGNUP</h3>
             <form>
                 <label for="username">username</label>
                 <input type="text" id="username" name="username" required>
-
+                
                 <label for="password">password</label>
                 <input type="password" id="password" name="password" required>
+                
+                <label for="confirm-password">password</label>
+                <input type="confirm password" id="confirm-password" name="confirm-password" required>
 
-                <div class="signup-link">
-                    <span>Do not have an account?</span> 
-                    <a href="signup.html">SignUp</a>
+                <div class="extra-links">
+                    <span>Do you have an account? </span>
+                    <a href="index.html">login</a>
                 </div>
 
-                <button type="submit" class="login-button">login</button>
+                <button type="submit">signup</button>
             </form>
         </div>
     </div>
 </body>
 <script src="https://app.embed.im/snow.js" defer></script>
 </html>
-
