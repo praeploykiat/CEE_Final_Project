@@ -30,6 +30,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import authRoutes from './routes/authRoutes.js'; // Ensure the file extension is included
+import resolutionRoutes from './routes/resolutionRoutes.js'; // Add resolution routes
 
 const app = express();
 
@@ -50,6 +51,7 @@ mongoose
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/resolutions', resolutionRoutes); // Add the resolution routes
 
 // Start Server
 const PORT = 3222;
