@@ -1,7 +1,7 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../models/user.js'; // Include the .js file extension for ES Modules
+import User from '../models/userModel.js'; // Include the .js file extension for ES Modules
 
 const router = express.Router();
 const JWT_SECRET = 'your_jwt_secret_key'; // Replace with a secure secret
