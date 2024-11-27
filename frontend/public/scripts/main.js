@@ -1,23 +1,12 @@
-import { handleCreateMember, populateMembers } from "./member.js";
-import { fetchAndDrawTable, handleCreateItem, handleFilterItem } from "./table.js";
+// script.js
+function toggleDropdown() {
+    const dropdown = document.getElementById('dropdown');
+    // Toggle the dropdown visibility
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-  fetchAndDrawTable();
-
-  populateMembers();
-
-  const addItemButton = document.getElementById("add-newrow");
-  addItemButton.addEventListener("click", () => {
-    handleCreateItem();
-  });
-
-  const filterButton = document.getElementById("filter-button");
-  filterButton.addEventListener("click", () => {
-    handleFilterItem();
-  });
-
-  const addMemberButton = document.getElementById("add-member");
-  addMemberButton.addEventListener("click", () => {
-    handleCreateMember();
-  });
-});
+function logout() {
+    // Add your logout logic here (e.g., clearing session, redirecting to login page)
+    alert("Logged out successfully!");
+    window.location.href = 'login.html'; // Redirect to login page
+}

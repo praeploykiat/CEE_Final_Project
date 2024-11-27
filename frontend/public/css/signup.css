@@ -96,3 +96,52 @@ button {
 button:hover {
     background-color: #9d9ad9;
 }
+
+/* Popup overlay */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup content box */
+.popup-box {
+    background-color: #fff; /* White background */
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    width: 90%;
+}
+
+/* Popup message */
+.popup-box p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333; /* Dark gray text */
+}
+
+/* Popup button */
+.popup-box button {
+    background-color: #6d98b5; /* Light blue button */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.popup-box button:hover {
+    background-color: #4a7292; /* Darker blue on hover */
+}
+

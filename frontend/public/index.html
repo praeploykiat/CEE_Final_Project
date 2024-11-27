@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Year Resolution Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <div class="container">
@@ -13,10 +13,15 @@
             <img src="NYLogo.png" alt="Gift Icon" class="logo">
         </div>
 
+        <div class="popup" id="popup">
+            <p>Incorrect Username or Password</p>
+            <button onclick="closePopup()">OK</button>
+        </div>
+
         <!-- Login Form Section -->
         <div class="login-box">
             <h3>LOGIN</h3>
-            <form>
+            <form onsubmit="validateLogin(event)">
                 <label for="username">username</label>
                 <input type="text" id="username" name="username" required>
 
@@ -32,6 +37,7 @@
             </form>
         </div>
     </div>
+    <script src="scripts/index.js"></script>
 </body>
 <script src="https://app.embed.im/snow.js" defer></script>
 </html>
