@@ -1,0 +1,113 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFF7E6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+    position: relative;
+}
+
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 400px;
+    height: auto;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #6b6b6b;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ECEFF1;
+}
+
+/* Main content styling */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resolution-card {
+    width: 60%;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.card-header {
+    background-color: #9BB3DD;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    padding: 10px;
+}
+
+/* Navigation buttons */
+.nav-buttons {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.back-button {
+    background-color: #9BB3DD;
+    color: white;
+}
+
+.next-button {
+    background-color: #F4C7C3;
+    color: white;
+}
