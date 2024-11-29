@@ -21,22 +21,9 @@ body {
     position: relative;
 }
 
-/* Header styling */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.logo {
-    max-width: 400px;
-    height: auto;
-}
-
 .profile {
     display: flex;
-    align-items: center;
+    align-items: right;
     gap: 10px;
     font-size: 1rem;
     color: #6b6b6b;
@@ -48,6 +35,14 @@ body {
     border-radius: 50%;
     background-color: #ECEFF1;
 }
+
+/* Header styling */
+.header .logo {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+
 
 /* Main content styling */
 .content {
