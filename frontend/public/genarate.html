@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Year's Resolution</title>
-    <link rel="stylesheet" href="css/own.css">
+    <title>Generate Card</title>
+    <link rel="stylesheet" href="css/genarate.css">
 </head>
 <body>
     <div class="container">
@@ -20,24 +20,16 @@
                 <img src="pic/NYLogo.png" alt="Let's Share Your New Year's Resolution" class="logo">
             </div>
         </div>
-
-        <!-- Main content area -->
-        <div class="content">
-            <div class="resolution-card">
-                <button class="card-header">Create your resolution</button>
-                <div class="card-body">
-                    <p><strong>username :</strong> .........</p>
-                    <p>textttttttgtt</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Navigation buttons -->
-        <div class="nav-buttons">
-            <button class="nav-btn back-btn">←</button>
-            <button class="nav-btn next-btn">→</button>
+    <div id="card-container">
+        <div class="card-template" id="card">
+            <h3 class="card-username" id="username">Username</h3>
+            <p class="card-text" id="text">Your text goes here...</p>
         </div>
     </div>
+    <button id="download-btn">Download as PNG</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="scripts/genarate.js"></script>
 </body>
 <script src="https://app.embed.im/snow.js" defer></script>
 </html>
