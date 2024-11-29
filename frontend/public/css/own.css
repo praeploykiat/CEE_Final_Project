@@ -61,31 +61,35 @@ body {
 .content {
     display: flex;
     justify-content: center;
-    align-items: center;
+    height: 50vh;
     margin: 0;
-    padding-top: 20px;
 }
 
+/* Resolution card styling */
 .resolution-card {
     width: 60%;
     background-color: #FFFFFF;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 100px;
+    padding: 40px; /* Adjust padding for internal spacing */
+    position: relative; /* Allows positioning elements inside */
+    margin: 0;
 }
 
+/* Button styling */
 .card-header {
     background-color: #9BB3DD;
-    border: 0px;
+    border: none;
     padding: 10px 20px;
     border-radius: 30px;
     font-size: 1rem;
     color: white;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 0;
-    margin-bottom: 20px;
-    
+    position: absolute;
+    top: 10px; /* Positions the button slightly above the card */
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Adjusts for button width */
 }
 
 .card-body {
