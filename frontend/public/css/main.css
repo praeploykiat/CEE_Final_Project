@@ -109,7 +109,6 @@ body {
     color: white;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
 }
 
 .dropdown .logout-btn:hover {
