@@ -17,5 +17,11 @@ document.getElementById('download-btn').addEventListener('click', () => {
     });
 });
 
+document.querySelector(".back-btn").addEventListener("click", function () {
+    window.location.href = "main.html"; // เปลี่ยนเส้นทางไปยัง random.html
+});
+
+
 // Example: Populate the card dynamically
 updateCard('JohnDoe', 'This is an example card text.');
+
