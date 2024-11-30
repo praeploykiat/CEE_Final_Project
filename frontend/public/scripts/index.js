@@ -5,7 +5,7 @@ function validateLogin(event) {
   const password = document.getElementById("password").value;
 
   // Replace with actual validation logic
-  if (username !== "hii" || password !== "123") {
+  if (username !== "hi" || password !== "123") {
       showPopup();
   } else {
       //alert("Login successful!"); // Redirect or handle success
