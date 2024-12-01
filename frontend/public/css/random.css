@@ -80,16 +80,26 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Text Box */
-.text-box {
-    width: 70%;
-    background-color: #F8F8F8;
-    padding: 20px;
-    border-radius: 15px;
+.circle-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Circle with image */
+.circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-size: 1.2rem;
-    color: #333;
+}
+
+/* Selected circle */
+.circle.selected {
+    border: 3px solid #4A90E2; /* Blue border for the selected circle */
 }
 
 /* Navigation Buttons */
