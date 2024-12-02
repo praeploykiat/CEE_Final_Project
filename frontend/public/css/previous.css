@@ -73,32 +73,24 @@ body {
 }
 
 .scroll-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px auto;
-    position: relative;
-    width: 90%;
-    max-width: 1000px;
+    width: 100%;
+    overflow-x: auto; /* Allows horizontal scrolling */
+    white-space: nowrap; /* Prevents wrapping of the content */
 }
 
 .scroll-wrapper {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth; /* Smooth scrolling effect */
-    gap: 15px; /* Space between cards */
-    padding: 20px;
-}
-
-.scroll-wrapper::-webkit-scrollbar {
-    display: none; /* Hides the scrollbar for a cleaner look */
+    display: inline-flex; /* Keeps the cards in a horizontal row */
+    gap: 10px; /* Adds spacing between cards */
+    padding: 10px;
 }
 
 .card {
     flex: 0 0 auto; /* Prevent shrinking */
     width: 150px;
     height: 200px;
-    background-color: #ffffff;
+    background-image: url('../pic/PreviousText.png'); /* Replace with your image path */
+    background-size: cover; /* Ensure the image covers the entire card */
+    background-position: center; /* Center the image within the card */
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -112,6 +104,7 @@ body {
     border: 2px solid transparent;
     transition: all 0.3s;
 }
+
 
 .card:hover {
     border-color: #4a90e2; /* Highlight on hover */

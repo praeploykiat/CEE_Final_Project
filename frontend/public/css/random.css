@@ -38,8 +38,8 @@ body {
 }
 
 .profile-icon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: #ECEFF1;
 }
@@ -80,27 +80,65 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.circle-container {
+.square-container {
     display: flex;
+    gap: 10px; /* Add space between squares */
     justify-content: center;
-    gap: 20px;
+    align-items: center;
 }
 
-/* Circle with image */
-.circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+.square {
+    width: 200px;
+    height: 200px;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-/* Selected circle */
-.circle.selected {
-    border: 3px solid #4A90E2; /* Blue border for the selected circle */
+.square.selected {
+    border: 2px solid blue; /* Highlight selected square */
 }
+
+/* Popup styling */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    width: 250px;
+    height: 400px;
+    background-image: url('../pic/Textbox2.png'); /* Replace with your image path */ 
+    background-size: cover; /* Ensure the image covers the entire card */ 
+    background-position: center;
+    padding: 50px;
+    border-radius: 10px;
+    /*box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);*/
+    text-align: center;
+    font-size: 18px;
+    position: center;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
 
 /* Navigation Buttons */
 .nav-buttons {

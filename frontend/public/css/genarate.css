@@ -11,9 +11,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
 }
-
 .container {
     width: 80%;
     max-width: 1200px;
@@ -56,36 +56,18 @@ body {
 }
 
 /* Card Container */
-#card-container {
-    margin-top: 40px;
-    position: relative;
-    display: inline-block;
-}
-
-/* Resolution Card Styling */
-.resolution-card {
-    position: relative;
-    width: 400px;
+#card {
+    width: 300px;
     height: 300px;
-}
-
-/* Card Content (Text) */
-.card-content {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: black;
-    text-align: center;
-    z-index: 2; /* Make sure text is above the image */
+    background-color: #ECEFF1;
     padding: 20px;
-}
-
-/* Background Image Styling */
-.card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the entire area */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: black; /* Change text color if needed */
+    box-sizing: border-box; /* Include padding in element's width/height */
 }
 
 /* Button Styling */
