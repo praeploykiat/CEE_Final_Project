@@ -55,81 +55,33 @@ body {
     height: auto;
 }
 
-
-
-/* Main content styling */
-.content {
-    display: flex;
-    justify-content: center;
-    height: 50vh;
-    margin: 0;
-}
-
-/* Resolution card styling */
-.resolution-card {
+.card {
     width: 600px;
     height: 300px;
-    /*background-image: url('../pic/createresolution.png'); /* Replace with your image path */
-    /*background-size: cover; /* Ensure the image covers the entire card */
-    /*background-position: center;*/
-    background-color: #f8fafc;
-    border-radius: 15px;
-    
-    padding: 40px; /* Adjust padding for internal spacing */
-    position: relative; /* Allows positioning elements inside */
-    margin: 0;
-}
-
-/* Button styling */
-.card-header {
-    background-color: #9BB3DD;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-size: 1rem;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    position: absolute;
-    top: 10px; /* Positions the button slightly above the card */
-    left: 50%; /* Centers horizontally */
-    transform: translateX(-50%); /* Adjusts for button width */
+    margin: 0 auto;
+    background-image: url('../pic/createresolution.png'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
 }
 
 .text-input {
-    display: block;
+    width: 80%;
+    height: 150px;
+    position: relative;
+    top: 75px; /* Move the text input field down */
+    left : 20px;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
     font-size: 1rem;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    font-family: inherit;
     outline: none;
-    width: 100%;
-    height: 100px; /* Adjust height as needed */
-    box-sizing: border-box;
-    color: #333;
-    resize: none; /* Prevent resizing */
-}
-
-/* Hover and focus effects */
-.text-input:focus, .username-input:focus {
-    border-color: #9BB3DD;
-    box-shadow: 0 0 5px rgba(155, 179, 221, 0.5);
-}
-
-.image {
-    position: absolute;
-    bottom: 10px; /* Adjust this value to move it up/down */
-    right: 10px; /* Adjust this value to move it left/right */
-    width: 250px; /* Set the desired size for the image */
-    height: auto;
-}
-
-.card-body {
-    text-align: left;
-    font-size: 1rem;
-    color: #333;
-    padding: 10px;
+    resize: none;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Navigation Buttons */

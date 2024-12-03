@@ -2,7 +2,10 @@
 body {
     margin: 0;
     font-family: 'Sour Gummy', cursive;
-    background-color: #f8eedb;
+    /*background-color: #f8eedb;*/
+    background-image: url('../pic/paper.png'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;

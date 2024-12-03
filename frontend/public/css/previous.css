@@ -38,8 +38,8 @@ body {
 }
 
 .profile-icon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: #ECEFF1;
 }
@@ -88,7 +88,7 @@ body {
     flex: 0 0 auto; /* Prevent shrinking */
     width: 150px;
     height: 200px;
-    background-image: url('../pic/PreviousText.png'); /* Replace with your image path */
+    background-image: url('../pic/previous.png'); /* Replace with your image path */
     background-size: cover; /* Ensure the image covers the entire card */
     background-position: center; /* Center the image within the card */
     border-radius: 10px;
