@@ -26,11 +26,11 @@ export async function login(username, password) {
 }
 
 // User signup
-export async function signup(username, password) {
+export async function signup(username, password, confirmPassword) {
   const response = await fetch(`${BACKEND_URL}/api/auth/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password }),  // Just send username and password
+      body: JSON.stringify({ username, password, confirmPassword }),  // Send both password and confirmPassword
   });
 
   if (!response.ok) {
@@ -40,6 +40,7 @@ export async function signup(username, password) {
 
   return response.json();
 }
+
 
 // Fetch a random resolution
 export async function fetchRandomResolution() {

@@ -3,7 +3,7 @@ body {
     margin: 0;
     font-family: 'Sour Gummy', cursive;
     /*background-color: #f8eedb;*/
-    background-image: url('../pic/pinkbg.jpg'); /* Replace with your image path */
+    background-image: url('../pic/circlepink.png'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     display: flex;

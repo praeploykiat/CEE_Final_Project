@@ -10,29 +10,16 @@ const JWT_SECRET = 'your_jwt_secret_key'; // Replace with a secure secret
 router.post('/signup', async (req, res) => {
   const { username, password, confirmPassword } = req.body;
 
-  // Check if passwords match
   if (password !== confirmPassword) {
     return res.status(400).json({ message: "Passwords don't match" });
   }
 
   try {
-    // Check if username already exists
-    const existingUser = await User.findOne({ username });
-    if (existingUser) {
-      return res.status(400).json({ message: 'Username already exists' });
-    }
-
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Create new user with hashed password
-    const newUser = new User({ username, password: hashedPassword });
+    const newUser = new User({ username, password });
     await newUser.save();
-    
     res.status(201).json({ message: 'Signup successful' });
   } catch (error) {
-    console.error('Error during signup:', error);
-    res.status(500).json({ message: 'Server error during signup' });
+    res.status(400).json({ message: 'Username already exists' });
   }
 });
 // router.post('/signup', async (req, res) => {

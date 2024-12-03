@@ -101,42 +101,80 @@
 
 
 // Function to validate signup form
-function validateSignup(event) {
+// function validateSignup(event) {
+//     event.preventDefault(); // Prevent form submission
+
+//     const username = document.getElementById("username").value.trim();
+//     const password = document.getElementById("password").value.trim();
+//     const confirmPassword = document.getElementById("confirm-password").value.trim();
+
+//     const popup = document.getElementById("popup");
+//     const popupMessage = document.getElementById("popupMessage");
+
+//     // Check if username exists in the database
+//     const existingUsernames = []; // Replace with actual database or array of usernames
+//     if (existingUsernames.includes(username)) {
+//         popupMessage.textContent = "Username already exists. Please choose a different one.";
+//         popup.style.display = "flex"; // Show the popup
+//         return;
+//     }
+
+//     // Check if passwords match
+//     if (password !== confirmPassword) {
+//         popupMessage.textContent = "Password and Confirm Password do not match.";
+//         popup.style.display = "flex"; // Show the popup
+//         return;
+//     }
+
+//     // If all validations pass
+//     popupMessage.textContent = "Signup successful!";
+//     popup.style.display = "flex"; // Show the popup
+
+//     // Simulate adding the new user to the database
+//     existingUsernames.push(username);
+//     console.log("New Usernames Database:", existingUsernames);
+// }
+
+// // Function to close the popup
+// function closePopup() {
+//     const popup = document.getElementById("popup");
+//     popup.style.display = "none"; // Hide the popup
+// }
+import { signup } from './api.js'; // Ensure the path is correct
+
+const validateSignup = async (event) => {
     event.preventDefault(); // Prevent form submission
 
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
     const confirmPassword = document.getElementById("confirm-password").value.trim();
 
-    const popup = document.getElementById("popup");
-    const popupMessage = document.getElementById("popupMessage");
-
-    // Check if username exists in the database
-    const existingUsernames = []; // Replace with actual database or array of usernames
-    if (existingUsernames.includes(username)) {
-        popupMessage.textContent = "Username already exists. Please choose a different one.";
-        popup.style.display = "flex"; // Show the popup
-        return;
-    }
-
-    // Check if passwords match
+    // Validate if passwords match before making the API call
     if (password !== confirmPassword) {
-        popupMessage.textContent = "Password and Confirm Password do not match.";
-        popup.style.display = "flex"; // Show the popup
+        alert("Password and Confirm Password do not match.");
         return;
     }
 
-    // If all validations pass
-    popupMessage.textContent = "Signup successful!";
-    popup.style.display = "flex"; // Show the popup
+    try {
+        console.log("Calling signup API...");
+        // Pass both username and password (and confirmPassword in case backend needs it)
+        const response = await signup(username, password, confirmPassword); 
+        
+        if (response && response.message === "Signup successful") {
+            alert("Signup successful!");
+            //console.log("Redirecting to main page...");
+            window.location.href = "index.html"; // Redirect to the main page after signup
+        } else {
+            alert("Signup failed: " + (response.message || "Unknown error"));
+        }
+    } catch (error) {
+        console.error("Error during signup:", error);
+        alert(error.message || "Signup failed.");
+    }
+};
 
-    // Simulate adding the new user to the database
-    existingUsernames.push(username);
-    console.log("New Usernames Database:", existingUsernames);
-}
-
-// Function to close the popup
-function closePopup() {
-    const popup = document.getElementById("popup");
-    popup.style.display = "none"; // Hide the popup
-}
+// Ensure DOM is fully loaded before attaching the event listener
+document.addEventListener('DOMContentLoaded', () => {
+    const signupForm = document.getElementById("signup-form");
+    signupForm.addEventListener("submit", validateSignup);
+});
