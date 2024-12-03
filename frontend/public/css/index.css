@@ -3,7 +3,7 @@ body {
     margin: 0;
     font-family: 'Sour Gummy', cursive;
     /*background-color: #f8eedb;*/
-    background-image: url('../pic/paper.png'); /* Replace with your image path */
+    background-image: url('../pic/pinkbg.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -42,7 +42,7 @@ body {
     font-size: 1.5rem;
     margin-bottom: 20px;
     color: #000000;
-    background-color: #d8e9b4;
+    background-color: #ec749c;
     padding: 10px 20px;
     border-radius: 10px;
     display: inline-block;
@@ -90,7 +90,7 @@ input[type="password"] {
 
 .login-button {
     font-family: 'Sour Gummy', sans-serif;
-    background-color: #b8db9b;
+    background-color: #ec749c;
     color: #444;
     border: none;
     padding: 10px;
@@ -100,7 +100,7 @@ input[type="password"] {
 }
 
 .login-button:hover {
-    background-color: #81b4c5;
+    background-color: #e06f95;
 }
 
 .popup {
