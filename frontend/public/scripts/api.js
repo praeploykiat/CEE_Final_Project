@@ -43,25 +43,59 @@ export async function signup(username, password) {
 
 // Fetch a random resolution
 export async function fetchRandomResolution() {
-    const response = await fetch(`${BACKEND_URL}/resolutions/random`);
+    const response = await fetch(`${BACKEND_URL}/api/resolutions/random`);
     if (!response.ok) throw new Error('Failed to fetch random resolution');
     return response.json();
 }
 
-// Submit a new resolution
-export async function submitResolution(name, resolution) {
-    const response = await fetch(`${BACKEND_URL}/resolutions`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, resolution }),
-    });
-    if (!response.ok) throw new Error('Failed to submit resolution');
-    return response.json();
+// // Submit a new resolution
+// export async function submitResolution(name, resolution) {
+//     const response = await fetch(`${BACKEND_URL}/api/resolutions`, {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({ name, resolution }),
+//     });
+//     if (!response.ok) throw new Error('Failed to submit resolution');
+//     return response.json();
+// }
+
+// // Fetch previous resolutions
+// export async function fetchPreviousResolutions(name) {
+//     const response = await fetch(`${BACKEND_URL}/resolutions?name=${encodeURIComponent(name)}`);
+//     if (!response.ok) throw new Error('Failed to fetch previous resolutions');
+//     return response.json();
+// }
+export async function submitResolution(username, resolutionText) {
+  const userId = localStorage.getItem('userId'); // Retrieve the user ID from localStorage
+
+  const response = await fetch(`${BACKEND_URL}/api/resolutions`, {
+      method: 'POST',
+      headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('userToken')}` // Add token if needed
+      },
+      body: JSON.stringify({ user: userId, text: resolutionText }), // Match the schema field names
+  });
+
+  if (!response.ok) throw new Error('Failed to submit resolution');
+  return response.json();
 }
 
-// Fetch previous resolutions
+
+// Fetch previous resolutions with authentication
 export async function fetchPreviousResolutions(name) {
-    const response = await fetch(`${BACKEND_URL}/resolutions?name=${encodeURIComponent(name)}`);
-    if (!response.ok) throw new Error('Failed to fetch previous resolutions');
-    return response.json();
+  const token = localStorage.getItem('userToken'); // Get the token from localStorage
+
+  if (!token) {
+      throw new Error('User is not authenticated');
+  }
+
+  const response = await fetch(`${BACKEND_URL}/api/resolutions?name=${encodeURIComponent(name)}`, {
+      headers: {
+          'Authorization': `Bearer ${token}`, // Add token in Authorization header
+      }
+  });
+
+  if (!response.ok) throw new Error('Failed to fetch previous resolutions');
+  return response.json();
 }

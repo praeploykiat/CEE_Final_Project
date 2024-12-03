@@ -1,22 +1,9 @@
 document.querySelector(".back-btn").addEventListener("click", function () {
     window.location.href = "main.html"; // เปลี่ยนเส้นทางไปยัง random.html
 });
-document.querySelector(".next-btn").addEventListener("click", function () {
-    window.location.href = "genarate.html"; // เปลี่ยนเส้นทางไปยัง random.html
-});
+
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Simulating database data
-    const databaseData = [
-        "First resolution",
-        "First resolution",
-        "Second resolution",
-        "Third resolution",
-        "First resolution",
-        "Second resolution",
-        "Third resolution",
-    ]; // Replace this with your actual database query result
-
     const cardContainer = document.getElementById("cardContainer");
 
     // Function to create a card
@@ -27,15 +14,31 @@ document.addEventListener("DOMContentLoaded", () => {
         return card;
     };
 
-    // Populate cards based on database data
-    if (databaseData.length > 0) {
-        databaseData.forEach((item) => {
-            const newCard = createCard(item);
-            cardContainer.appendChild(newCard);
+    // Fetch resolutions from backend API
+    fetch('/api/resolutions')
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch resolutions');
+            }
+            return response.json();
+        })
+        .then((data) => {
+            if (data.length > 0) {
+                // Populate cards based on fetched data
+                data.forEach((item) => {
+                    const newCard = createCard(item);
+                    cardContainer.appendChild(newCard);
+                });
+            } else {
+                // If no data, show a placeholder card
+                const placeholderCard = createCard("No resolutions yet");
+                cardContainer.appendChild(placeholderCard);
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            const errorCard = createCard("Error loading resolutions");
+            cardContainer.appendChild(errorCard);
         });
-    } else {
-        // If no data in the database, show a placeholder card
-        const placeholderCard = createCard("No resolutions yet");
-        cardContainer.appendChild(placeholderCard);
-    }
 });
+

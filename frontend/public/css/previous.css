@@ -138,10 +138,6 @@ body {
     color: white;
 }
 
-.next-btn {
-    background-color: #F6D6D6;
-    color: black;
-}
 
 .nav-btn:hover {
     transform: scale(1.1);

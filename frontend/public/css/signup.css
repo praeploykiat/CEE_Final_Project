@@ -2,7 +2,9 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f8eedb;
+    background-image: url('../pic/paper.png'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;

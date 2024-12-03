@@ -77,4 +77,19 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
+// In your backend, modify the route to fetch the latest resolution for the logged-in user:
+router.get('/latest', async (req, res) => {
+  const userId = req.user.id; // Assuming you have user authentication set up
+  
+  try {
+      const resolution = await Resolution.findOne({ user: userId }).sort({ createdAt: -1 }); // Sort by createdAt, descending
+      if (!resolution) {
+          return res.status(404).json({ message: 'No resolution found for the user.' });
+      }
+      res.json(resolution);
+  } catch (err) {
+      res.status(500).json({ message: 'Error fetching latest resolution' });
+  }
+});
+
 export default router;
