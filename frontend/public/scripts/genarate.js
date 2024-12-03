@@ -222,6 +222,9 @@
 
 // // Call the updateCard function to populate the card when the page is loaded
 // updateCard();
+
+import { BACKEND_URL } from './config.js';
+
 document.querySelector(".back-btn").addEventListener("click", function () {
     window.location.href = "main.html"; // Navigate back to main page
 });
@@ -236,7 +239,7 @@ async function updateCard() {
     }
 
     try {
-        const response = await fetch('http://localhost:3222/api/resolutions', {
+        const response = await fetch(`${BACKEND_URL}/api/resolutions`, {
             headers: { 'Authorization': `Bearer ${token}` },
         });
 

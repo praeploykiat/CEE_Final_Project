@@ -2,7 +2,6 @@
 * {
     margin: 0;
     padding: 0;
-    
 }
 
 body {
@@ -87,6 +86,7 @@ body {
     gap: 10px; /* Add space between squares */
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; /* Allow wrapping of squares */
 }
 
 .square {
@@ -162,9 +162,6 @@ body {
     transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
-
-
-
 /* Navigation Buttons */
 .nav-buttons {
     display: flex;
@@ -196,3 +193,68 @@ body {
     transform: scale(1.1);
     background-color: #CCC;
 }
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .logo {
+        width: 150px; /* Adjust logo size for smaller screens */
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .random-btn {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    .square-container {
+        gap: 8px;
+    }
+
+    .square {
+        width: 150px;
+        height: 150px;
+    }
+
+    .popup-content {
+        width: 200px;
+        height: 300px;
+    }
+
+    .popup-buttons button {
+        font-size: 12px;
+        padding: 8px 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .top-bar {
+        justify-content: center; /* Center profile section */
+    }
+
+    .profile {
+        font-size: 0.9rem;
+    }
+
+    .square-container {
+        flex-direction: column; /* Stack squares vertically */
+        gap: 5px;
+    }
+
+    .square {
+        width: 120px;
+        height: 120px;
+    }
+
+    .popup-content {
+        width: 180px;
+        height: 250px;
+    }
+
+    .random-btn {
+        width: 100%; /* Make button take up full width on mobile */
+    }
+}
+

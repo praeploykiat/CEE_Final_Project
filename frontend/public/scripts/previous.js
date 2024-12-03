@@ -52,7 +52,7 @@
 //         document.getElementById('username').innerText = 'Guest'; // Default username if not logged in
 //     }
 // });
-const BACKEND_URL = 'http://localhost:3222'; // Replace with your actual backend URL
+import { BACKEND_URL } from './config.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     const cardContainer = document.getElementById("cardContainer");
