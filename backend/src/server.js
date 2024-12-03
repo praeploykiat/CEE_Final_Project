@@ -25,18 +25,8 @@ app.listen(PORT, "0.0.0.0", () => {
 });
 */
 
-import express from 'express';
 import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import authRoutes from './routes/authRoutes.js'; // Ensure the file extension is included
-import resolutionRoutes from './routes/resolutionRoutes.js'; // Add resolution routes
-
-const app = express();
-
-// Middleware
-app.use(bodyParser.json());
-app.use(cors());
+import app from './app.js';
 
 const uri = 'mongodb+srv://praeploy05:pauli1405@cluster0.fqkyu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
@@ -48,10 +38,6 @@ mongoose
   })
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
-
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/resolutions', resolutionRoutes); // Add the resolution routes
 
 // Start Server
 const PORT = 3222;

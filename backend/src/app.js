@@ -1,20 +1,30 @@
-import express from "express";
-import cors from "cors";
-
-import ItemRoute from "./routes/itemRoute.js";
-import MemberRoute from "./routes/memberRoute.js";
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import authRoutes from './routes/authRoutes.js';
+import resolutionRoutes from './routes/resolutionRoutes.js';
 
 const app = express();
 
-// body-parser
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// allow request from other origin (Frontend which is at different port)
+// Middleware
+app.use(bodyParser.json());
 app.use(cors());
+app.use(express.json());  // Body parser for JSON payloads
 
-// use routes
-app.use("/items", ItemRoute);
-app.use("/members", MemberRoute);
+
+// Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/resolutions', resolutionRoutes);
+
+// Handle undefined routes
+app.use((req, res) => {
+  res.status(404).json({ message: 'Route not found' });
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Internal server error' });
+});
 
 export default app;
