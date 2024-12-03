@@ -12,28 +12,27 @@
             <img src="pic/NYLogo.png" alt="Gift Icon" class="gift-icon">
         </div>
         <div class="popup" id="popup">
-            <p>Incorrect Username or Password</p>
+            <p id="popupMessage">Incorrect Username or Password</p>
             <button onclick="closePopup()">OK</button>
         </div>
         <div class="signup-box">
             <h3>SIGNUP</h3>
             <form id="signupForm" onsubmit="validateSignup(event)">
-                <label for="username">username</label>
+                <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
                 
-                <label for="password">password</label>
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
                 
-                <label for="confirm-password">password</label>
-                <input type="confirm password" id="confirm-password" name="confirm-password" required>
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
 
                 <div class="extra-links">
                     <span>Do you have an account? </span>
-                    <a href="index.html">login</a>
+                    <a href="index.html">Login</a>
                 </div>
 
-                <button type="submit" onclick="validateSignup(event)">Signup</button>
-
+                <button type="submit">Signup</button>
             </form>
         </div>
     </div>

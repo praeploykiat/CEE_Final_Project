@@ -72,6 +72,33 @@ router.post('/signup', async (req, res) => {
 //     res.status(500).json({ message: 'Server error' });
 //   }
 // });
+// router.post('/login', async (req, res) => {
+//   const { username, password } = req.body;
+
+//   try {
+//       const user = await User.findOne({ username });
+//       console.log("User found:", user);
+
+//       if (!user) {
+//           return res.status(400).json({ message: 'Invalid username or password' });
+//       }
+
+//       const isMatch = await bcrypt.compare(password, user.password);
+//       console.log("Password match:", isMatch);
+
+//       if (!isMatch) {
+//           return res.status(400).json({ message: 'Invalid username or password' });
+//       }
+
+//       const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
+//       console.log("Token created:", token);
+
+//       res.json({ message: 'Login successful', token });
+//   } catch (error) {
+//       console.error("Server error during login:", error);
+//       res.status(500).json({ message: 'Server error' });
+//   }
+// });
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -90,7 +117,8 @@ router.post('/login', async (req, res) => {
           return res.status(400).json({ message: 'Invalid username or password' });
       }
 
-      const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
+      // Include the username in the token payload
+      const token = jwt.sign({ id: user._id, username: user.username }, JWT_SECRET, { expiresIn: '1h' });
       console.log("Token created:", token);
 
       res.json({ message: 'Login successful', token });

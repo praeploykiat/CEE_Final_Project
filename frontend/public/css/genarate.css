@@ -1,44 +1,25 @@
-
-body {
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
+}
+
+body {
     font-family: Arial, sans-serif;
-    background-color: #FFF7E6;
-    display: flex; /* Flexbox layout */
-    justify-content: center; /* Horizontally center content */
-    align-items: center; /* Vertically center content */
-    height: 100vh; /* Full viewport height */
-    box-sizing: border-box; /* Include padding in dimensions */
+    background-image: url('../pic/paper.png'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 100vh;
 }
 
 .container {
     width: 80%;
     max-width: 1200px;
     text-align: center;
-    position: relative;
-}
-
-.top-bar {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    padding: 5px 5px;
-    box-sizing: border-box;
-}
-
-.profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-    color: #6b6b6b;
-}
-
-.profile-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #ECEFF1;
+    position: fixed;
 }
 
 /* Logo container styling */
@@ -48,43 +29,41 @@ body {
 }
 
 .logo {
-    width: 200px;
+    width: 250px;
     height: auto;
 }
 
 /* Card Container */
 #card {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     background-image: url('../pic/cardresolution.png'); /* Replace with your image path */
     background-size: cover; /* Ensure the image covers the entire card */
     background-position: center;
-    padding: 50px;
-    border-radius: 10px;
-    position: relative; /* Set to relative for positioning child elements */
+    padding: 60px;
+    border-radius: 0px;
+    position: center; /* Set to relative for positioning child elements */
     color: black; /* Change text color if needed */
+    margin-left: 33%;
+
+    /* Center the card within its container */
+    display: flex;
+    justify-content: center; /* Horizontally center content inside the card */
+    align-items: center; /* Vertically center content inside the card */
 }
 
+/* Card Content Styling */
 .card-content {
     position: relative; /* Keep it relative to manage children */
 }
 
-.username-text {
-    position: absolute;
-    top: 50px; /* Adjust to your desired vertical position */
-    left: 40px; /* Adjust to your desired horizontal position */
-    font-size: 1.2rem; /* Adjust text size */
-    color: black; /* Adjust text color */
-}
-
+/* Username and Custom Text */
+.username-text,
 .custom-text {
-    position: absolute;
-    top: 80px; /* Adjust to your desired vertical position */
-    left: 40px; /* Adjust to your desired horizontal position */
     font-size: 1rem; /* Adjust text size */
     color: black; /* Adjust text color */
+    text-align: center; /* Center text */
 }
-
 
 /* Button Styling */
 #download-btn {
@@ -124,13 +103,7 @@ body {
     color: white;
 }
 
-.next-btn {
-    background-color: #F6D6D6;
-    color: black;
-}
-
 .nav-btn:hover {
     transform: scale(1.1);
     background-color: #CCC;
 }
-

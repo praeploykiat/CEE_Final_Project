@@ -7,7 +7,9 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #FFF7E6;
+    background-image: url('../pic/paper.png'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,6 +78,7 @@ body {
     width: 100%;
     overflow-x: auto; /* Allows horizontal scrolling */
     white-space: nowrap; /* Prevents wrapping of the content */
+    padding: 10px;
 }
 
 .scroll-wrapper {
@@ -103,6 +106,7 @@ body {
     cursor: pointer;
     border: 2px solid transparent;
     transition: all 0.3s;
+    padding: 10px;
 }
 
 

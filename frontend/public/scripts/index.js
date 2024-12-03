@@ -37,6 +37,7 @@ async function validateLogin(event) {
     console.log('Form submitted'); // Check if form submission is triggered
 
     const username = document.getElementById('username').value.trim();
+    localStorage.setItem("username", username);
     const password = document.getElementById('password').value.trim();
 
     if (!username || !password) {

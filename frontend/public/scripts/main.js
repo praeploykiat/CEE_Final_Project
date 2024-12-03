@@ -23,7 +23,12 @@ console.log(username);  */
 
 
 // ดึงองค์ประกอบใน DOM
-const username = document.getElementById("username");
+
+//document.getElementById("username").textContent = localStorage.getItem("username");
+//const username = document.getElementById("username");
+//username.textContent = localStorage.getItem("username");
+
+//const username = localStorage.getItem("username");
 const dropdown = document.getElementById("dropdown");
 const logoutBtn = document.getElementById("logout-btn");
 const profileIcon = document.getElementById("profile-icon");
