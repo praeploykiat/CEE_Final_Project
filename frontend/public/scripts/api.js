@@ -81,7 +81,6 @@ export async function submitResolution(username, resolutionText) {
   return response.json();
 }
 
-
 // Fetch previous resolutions with authentication
 export async function fetchPreviousResolutions(name) {
   const token = localStorage.getItem('userToken'); // Get the token from localStorage

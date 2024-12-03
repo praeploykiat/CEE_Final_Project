@@ -43,7 +43,6 @@
 //     const popup = document.getElementById('popup');
 //     popup.classList.add('hidden');  // Hide the popup when close button is clicked
 // }
-// Import the API function to fetch a random resolution
 import { fetchRandomResolution } from './api.js';
 
 document.querySelector(".back-btn").addEventListener("click", function () {
@@ -93,3 +92,14 @@ function closePopup() {
     const popup = document.getElementById('popup');
     popup.classList.add('hidden');  // Hide the popup when close button is clicked
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const username = localStorage.getItem('username');
+    console.log('Username from localStorage:', username); // Debugging if the username is fetched
+    
+    if (username) {
+        document.getElementById('username').innerText = username;
+    } else {
+        document.getElementById('username').innerText = 'Guest'; // Default username if not logged in
+    }
+});

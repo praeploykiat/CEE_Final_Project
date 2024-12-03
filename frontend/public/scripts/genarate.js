@@ -160,6 +160,72 @@
 
 // // Call the updateCard function to populate the card when the page is loaded
 // updateCard();
+// document.addEventListener("DOMContentLoaded", function () {
+//     const username = localStorage.getItem('username');
+//     console.log('Username from localStorage:', username); // Debugging if the username is fetched
+    
+//     if (username) {
+//         document.getElementById('username').innerText = username;
+//     } else {
+//         document.getElementById('username').innerText = 'Guest'; // Default username if not logged in
+//     }
+// });
+
+// async function updateCard() {
+//     const token = localStorage.getItem('userToken');
+//     const username = localStorage.getItem('username'); // Retrieve username from localStorage
+//     console.log('Username in function:', username); // Debugging if the username is fetched
+    
+//     if (!token || !username) {
+//         alert('You must be logged in to generate a card.');
+//         return;
+//     }
+
+//     try {
+//         // Fetch all resolutions for the logged-in user
+//         const response = await fetch('/api/resolutions', {
+//             headers: { 'Authorization': `Bearer ${token}` },
+//         });
+
+//         const data = await response.json();
+
+//         if (!response.ok) {
+//             throw new Error(data.error || 'Failed to fetch resolutions');
+//         }
+
+//         // Filter the latest resolution based on createdAt (if no latest API)
+//         const latestResolution = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))[0];
+        
+//         if (!latestResolution) {
+//             throw new Error('No resolution found for the user');
+//         }
+
+//         // Update the card with the latest resolution
+//         const resolutionText = latestResolution.text || 'No resolution available';
+//         document.getElementById('username').innerText = username;
+//         document.getElementById('text').innerText = resolutionText;
+//     } catch (err) {
+//         alert('Failed to fetch resolution: ' + err.message);
+//     }
+// }
+
+// // Function to generate PNG and download it
+// document.getElementById('download-btn').addEventListener('click', () => {
+//     const card = document.getElementById('card');
+//     html2canvas(card).then((canvas) => {
+//         const link = document.createElement('a');
+//         link.download = 'resolution-card.png';
+//         link.href = canvas.toDataURL('image/png');
+//         link.click();
+//     });
+// });
+
+// // Call the updateCard function to populate the card when the page is loaded
+// updateCard();
+document.querySelector(".back-btn").addEventListener("click", function () {
+    window.location.href = "main.html"; // Navigate back to main page
+});
+
 async function updateCard() {
     const token = localStorage.getItem('userToken');
     const username = localStorage.getItem('username'); // Retrieve username from localStorage
@@ -170,20 +236,25 @@ async function updateCard() {
     }
 
     try {
-        // Fetch all resolutions for the logged-in user
-        const response = await fetch('/api/resolutions', {
+        const response = await fetch('http://localhost:3222/api/resolutions', {
             headers: { 'Authorization': `Bearer ${token}` },
         });
 
-        const data = await response.json();
-
+        // Check if the response is not JSON (e.g., HTML error page)
         if (!response.ok) {
-            throw new Error(data.error || 'Failed to fetch resolutions');
+            throw new Error('Failed to fetch resolutions: ' + response.statusText);
         }
 
-        // Filter the latest resolution based on createdAt (if no latest API)
+        const contentType = response.headers.get('Content-Type');
+        if (!contentType || !contentType.includes('application/json')) {
+            throw new Error('Expected JSON but received: ' + contentType);
+        }
+
+        const data = await response.json();
+
+        // Filter the latest resolution based on createdAt
         const latestResolution = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))[0];
-        
+
         if (!latestResolution) {
             throw new Error('No resolution found for the user');
         }
@@ -191,7 +262,8 @@ async function updateCard() {
         // Update the card with the latest resolution
         const resolutionText = latestResolution.text || 'No resolution available';
         document.getElementById('username').innerText = username;
-        document.getElementById('text').innerText = resolutionText;
+        document.getElementById('resolutionText').innerText = resolutionText;
+
     } catch (err) {
         alert('Failed to fetch resolution: ' + err.message);
     }
@@ -207,6 +279,15 @@ document.getElementById('download-btn').addEventListener('click', () => {
         link.click();
     });
 });
-
+// document.addEventListener("DOMContentLoaded", function () {
+//     const username = localStorage.getItem('username');
+//     console.log('Username from localStorage:', username); // Debugging if the username is fetched
+    
+//     if (username) {
+//         document.getElementById('username').innerText = username;
+//     } else {
+//         document.getElementById('username').innerText = 'Guest'; // Default username if not logged in
+//     }
+// });
 // Call the updateCard function to populate the card when the page is loaded
 updateCard();

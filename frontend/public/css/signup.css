@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Sour Gummy', sans-serif;
     background-image: url('../pic/paper.png'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
@@ -84,6 +84,7 @@ input {
 
 /* Submit Button */
 button {
+    font-family: 'Sour Gummy', sans-serif;
     width: 100%;
     padding: 8px; /* Reduced padding */
     background-color: #b4dee9;

@@ -107,7 +107,13 @@ body {
     border: 2px solid transparent;
     transition: all 0.3s;
     padding: 10px;
+
+    /* Ensure text wraps */
+    word-wrap: break-word; /* Handle long words */
+    overflow-wrap: break-word; /* Fallback for better text wrapping */
+    white-space: normal; /* Allow multi-line text */
 }
+
 
 
 .card:hover {

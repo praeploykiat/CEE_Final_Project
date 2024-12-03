@@ -89,6 +89,7 @@ input[type="password"] {
 }
 
 .login-button {
+    font-family: 'Sour Gummy', sans-serif;
     background-color: #b8db9b;
     color: #444;
     border: none;
