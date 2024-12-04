@@ -1,7 +1,10 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken'; //Creates and verifies tokens for user authentication.
 import User from '../models/userModel.js'; // Include the .js file extension for ES Modules
+
+// JWT is stateless: It encodes the user's session data into the token itself, eliminating the need for server-side storage. 
+//verify who is logged in
 
 const router = express.Router();
 const JWT_SECRET = 'your_jwt_secret_key'; // Replace with a secure secret
@@ -15,8 +18,8 @@ router.post('/signup', async (req, res) => {
   }
 
   try {
-    const newUser = new User({ username, password });
-    await newUser.save();
+    const newUser = new User({ username, password }); // create user
+    await newUser.save(); //save to database
     res.status(201).json({ message: 'Signup successful' });
   } catch (error) {
     res.status(400).json({ message: 'Username already exists' });
@@ -97,7 +100,7 @@ router.post('/login', async (req, res) => {
           return res.status(400).json({ message: 'Invalid username or password' });
       }
 
-      const isMatch = await bcrypt.compare(password, user.password);
+      const isMatch = await bcrypt.compare(password, user.password); //Compares the provided password with the hashed password in the database using bcrypt.compare().
       console.log("Password match:", isMatch);
 
       if (!isMatch) {
