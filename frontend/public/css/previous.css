@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Sour Gummy', sans-serif;
     background-image: url('../pic/pinkbg.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
@@ -68,7 +68,7 @@ body {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Sour Gummy', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #fdf4e3; /* Background color similar to the image */

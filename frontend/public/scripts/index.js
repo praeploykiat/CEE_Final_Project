@@ -178,15 +178,18 @@ async function validateLogin(event) {
         console.log('Decoded Username:', decodedUsername);
         localStorage.setItem('username', decodedUsername); // Save the decoded username in localStorage
 
-        alert('Login successful!');
-        window.location.href = 'main.html'; // Redirect to the main page
+        // Show a success popup instead of alert
+        showPopup('Login successful! Redirecting...');
+        setTimeout(() => {
+            window.location.href = 'main.html'; // Redirect to the main page after showing the success popup
+        }, 2000); // Wait 2 seconds before redirecting
     } catch (error) {
         console.error('Login Error:', error);
 
         // Check if error is from the backend (i.e., the server responded with a message)
         if (error.response && error.response.data && error.response.data.message) {
             // If error message is available, show it in an alert
-            alert(error.response.data.message); // Display the error message (e.g., "Invalid username or password")
+            showPopup(error.response.data.message); // Display the error message (e.g., "Invalid username or password")
         } else {
             // For unexpected errors, show a general message
             showPopup(error.message || 'An error occurred. Please try again later.');

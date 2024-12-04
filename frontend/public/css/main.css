@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Sour Gummy', sans-serif;
     background-image: url('../pic/circlepink.png'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
@@ -14,6 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Main Container */
@@ -22,6 +23,7 @@ body {
     width: 100%;
     max-width: 800px;
     position: relative;
+    padding: 10px; /* Add padding for smaller screens */
 }
 
 /* Header and Logo */
@@ -45,19 +47,23 @@ body {
     border-radius: 25px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%; /* Make all buttons take up full width within their container */
 }
 
 .random-btn {
+    font-family: 'Sour Gummy', sans-serif;
     background-color: #D46046;
     color: white;
 }
 
 .write-btn {
+    font-family: 'Sour Gummy', sans-serif;
     background-color: #90A7E4;
     color: white;
 }
 
 .previous-btn {
+    font-family: 'Sour Gummy', sans-serif;
     background-color: #F6D6D6;
     color: black;
 }
@@ -90,79 +96,88 @@ body {
 }
 
 /* Dropdown Menu */
-/*.dropdown {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: white;
-    border: 1px solid #CCC;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    text-align: center;
-}
-
-.dropdown .logout-btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    background-color: #D46046;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.dropdown .logout-btn:hover {
-    background-color: #BA3C2A;
-}*/
-/* ตั้งค่าให้ profile container อยู่ในตำแหน่งที่เหมาะสม */
-
-/* ตั้งค่าของ dropdown ที่จะซ่อนโดยเริ่มต้น */
-/* ปรับสไตล์ของ dropdown */
 .dropdown {
     display: none;
     position: absolute;
-    top: 40px; /* ให้มันเลื่อนลงมาจากชื่อผู้ใช้ */
+    top: 40px; /* Adjust dropdown position */
     right: 0;
-    /*background-color: #fff;*/
-    /*box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);*/
-    border-radius: 12px; /* เพิ่มความมนให้กรอบ */
+    border-radius: 12px;
     padding: 12px;
-    min-width: 100px; /* ปรับความกว้างของ dropdown */
+    min-width: 100px;
     text-align: center;
-    z-index: 1000; /* ให้ dropdown อยู่บนสุด */
+    z-index: 1000;
 }
 
-/* เมื่อ dropdown แสดง ให้ใช้ class .show */
+/* Show dropdown */
 .dropdown.show {
     display: block;
 }
 
-/* ปรับสไตล์ของปุ่ม Log Out */
 .logout-btn {
-    background-color: #D46046; /* สีพื้นหลังแดงอ่อน */
+    font-family: 'Sour Gummy', sans-serif;
+    background-color: #D46046;
     color: #fff;
-    border: none; /* ไม่มีกรอบ */
-    padding: 12px 20px; /* เพิ่มขนาดปุ่ม */
+    border: none;
+    padding: 12px 20px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    border-radius: 25px; /* กรอบมนมากขึ้น */
-    font-size: 16px; /* ขนาดตัวอักษรใหญ่ขึ้น */
+    border-radius: 25px;
+    font-size: 16px;
     width: 100%;
     text-align: center;
-    transition: background-color 0.3s; /* เพิ่มการเปลี่ยนสีเมื่อ hover */
+    transition: background-color 0.3s;
     margin-left: 15px;
 }
 
-/* เมื่อ hover ที่ปุ่ม Log Out */
-
 .logout-btn:hover {
-    background-color: #C94A4A; /*นหลังแดงเข้มขึ้น */
+    background-color: #C94A4A;
 }
 
+/* Responsive Design */
+@media (max-width: 600px) {
+    /* Adjust font size and layout for smaller screens */
+    .btn {
+        font-size: 1rem;
+        padding: 12px 15px;
+    }
 
-/* เพิ่มลูกเล่นให้เมื่อ hover ที่ชื่อผู้ใช้ */
-.username:hover {
-    color:#D46046;
+    .container {
+        padding: 10px;
+        max-width: 100%; /* Make container full width */
+    }
+
+    .header .logo {
+        width: 250px;
+        margin-bottom: 15px;
+    }
+
+    .profile {
+        top: 10px; /* Adjust profile position */
+        right: 10px;
+    }
+
+    .username {
+        font-size: 0.9rem; /* Slightly smaller font for mobile */
+    }
+}
+
+/* For even smaller screens like portrait on mobile */
+@media (max-width: 400px) {
+    .header .logo {
+        width: 200px; /* Make logo smaller */
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+
+    .profile {
+        top: 5px; /* Adjust position */
+        right: 5px;
+    }
+
+    .username {
+        font-size: 0.8rem; /* Smaller font size for username */
+    }
 }

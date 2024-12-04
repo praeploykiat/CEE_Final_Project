@@ -1,25 +1,33 @@
-General Reset
 * {
     margin: 0;
     padding: 0;
 }
 
+html, body {
+    height: 100%; /* Allow full height for both html and body */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Sour Gummy', sans-serif;
     background-image: url('../pic/paper.png'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center; /* Horizontally center */
     align-items: center; /* Vertically center */
-    height: 100vh;
+    min-height: 100vh; /* Ensure body covers the screen height */
+    flex-direction: column; /* Stack elements vertically */
 }
 
 .container {
     width: 80%;
+    height: auto;
     max-width: 1200px;
     text-align: center;
-    position: fixed;
+    position: relative; /* Changed from fixed to relative to allow scrolling */
+    z-index: 10; /* Ensure content appears above background */
 }
 
 /* Logo container styling */
@@ -35,27 +43,29 @@ body {
 
 /* Card Container */
 #card {
-    width: 200px;
-    height: 200px;
+    width: 90%;
+    min-height: 400px; /* Set a minimum height */
+    height: auto;
     background-image: url('../pic/cardresolution.png'); /* Replace with your image path */
-    background-size: cover; /* Ensure the image covers the entire card */
+    background-size: contain; /* Ensure the entire background image is visible */
     background-position: center;
+    background-repeat: no-repeat; /* Prevent the image from repeating */
     padding: 50px;
     border-radius: 10px;
-    position: center; /* Set to relative for positioning child elements */
+    position: relative; /* Position relative for child elements */
     color: black; /* Change text color if needed */
-    margin-left: 30%;
-    margin-right: 40%;
-
-    /* Center the card within its container */
+    margin: 20px auto; /* Center the card and give some margin */
     display: flex;
     justify-content: center; /* Horizontally center content inside the card */
     align-items: center; /* Vertically center content inside the card */
+    box-sizing: border-box; /* Include padding in height and width */
 }
+
 
 /* Card Content Styling */
 .card-content {
     position: relative; /* Keep it relative to manage children */
+    padding: 10px; /* Add some padding for spacing inside the card */
 }
 
 /* Username and Custom Text */
@@ -64,6 +74,7 @@ body {
     font-size: 1rem; /* Adjust text size */
     color: black; /* Adjust text color */
     text-align: center; /* Center text */
+    line-height: 1.5; /* Adjust line height for better text readability */
 }
 
 /* Button Styling */
@@ -109,16 +120,19 @@ body {
     background-color: #CCC;
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
     #card {
-        width: 40%; /* Increase size for smaller screens */
-        padding: 10%; /* Adjust padding */
+        width: 70%; /* Make the card larger for smaller screens */
+        padding: 5%; /* Adjust padding for better content fitting */
+        min-height: 300px; /* Reduce the minimum height for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     #card {
-        width: 80%; /* Full width on very small screens */
-        padding: 15%;
+        width: 90%; /* Take more screen space on smaller devices */
+        padding: 5%; /* Decrease padding */
+        min-height: 250px; /* Further reduce minimum height for mobile */
     }
 }
