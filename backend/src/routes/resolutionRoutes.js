@@ -31,18 +31,6 @@ function auth(req, res, next) {
     }
   }
   
-/*function auth(req, res, next) {
-  const token = req.headers['authorization'];
-  if (!token) return res.status(401).json({ error: 'Unauthorized' });
-
-  try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    req.userId = decoded.id;
-    next();
-  } catch (err) {
-    res.status(403).json({ error: 'Invalid token' });
-  }
-}*/
 
 // Add a resolution
 router.post('/', auth, async (req, res) => {
@@ -77,9 +65,8 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-// In your backend, modify the route to fetch the latest resolution for the logged-in user:
 router.get('/latest', async (req, res) => {
-  const userId = req.user.id; // Assuming you have user authentication set up
+  const userId = req.user.id;
   
   try {
       const resolution = await Resolution.findOne({ user: userId }).sort({ createdAt: -1 }); // Sort by createdAt, descending

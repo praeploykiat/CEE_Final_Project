@@ -18,10 +18,9 @@ export async function login(username, password) {
   const data = await response.json();
 
   // Store the username and token in localStorage
-  localStorage.setItem('username', data.username);  // Store username
-  localStorage.setItem('userToken', data.token);  // Store token (if applicable)
+  localStorage.setItem('username', data.username);  
+  localStorage.setItem('userToken', data.token);  
 
-  // Return the response data (optional, depending on how you want to use it)
   return data;
 }
 
@@ -49,23 +48,7 @@ export async function fetchRandomResolution() {
     return response.json();
 }
 
-// // Submit a new resolution
-// export async function submitResolution(name, resolution) {
-//     const response = await fetch(`${BACKEND_URL}/api/resolutions`, {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify({ name, resolution }),
-//     });
-//     if (!response.ok) throw new Error('Failed to submit resolution');
-//     return response.json();
-// }
 
-// // Fetch previous resolutions
-// export async function fetchPreviousResolutions(name) {
-//     const response = await fetch(`${BACKEND_URL}/resolutions?name=${encodeURIComponent(name)}`);
-//     if (!response.ok) throw new Error('Failed to fetch previous resolutions');
-//     return response.json();
-// }
 export async function submitResolution(username, resolutionText) {
   const userId = localStorage.getItem('userId'); // Retrieve the user ID from localStorage
 
